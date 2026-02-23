@@ -9,7 +9,8 @@ function App() {
     onlyMichael: false,
     christmas: true,
     halloween: true,
-    valentines: true
+    valentines: true,
+    weightedShuffle: false
   });
 
   const handleFilterChange = (e) => {
@@ -44,6 +45,21 @@ function App() {
         setSelectedEpisode("No archival records match current criteria.");
         setIsShuffling(false);
         return;
+      }
+
+      if (filters.weightedShuffle) {
+        // Weighted random selection based on IMDB scores
+        const totalWeight = filtered.reduce((sum, ep) => sum + Math.pow(ep.imdbRating, 2), 0);
+        let randomWeight = Math.random() * totalWeight;
+
+        for (const ep of filtered) {
+          randomWeight -= Math.pow(ep.imdbRating, 2);
+          if (randomWeight <= 0) {
+            setSelectedEpisode(ep);
+            setIsShuffling(false);
+            return;
+          }
+        }
       }
 
       const randomIndex = Math.floor(Math.random() * filtered.length);
@@ -104,6 +120,17 @@ function App() {
             Valentine's
           </label>
         </div>
+
+        <div className="filter-section-title">Selection Mechanism</div>
+        <label className="filter-item">
+          <input
+            type="checkbox"
+            name="weightedShuffle"
+            checked={filters.weightedShuffle}
+            onChange={handleFilterChange}
+          />
+          Prioritize highest rated records
+        </label>
       </div>
 
       <div className="action-section">
