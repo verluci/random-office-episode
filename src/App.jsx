@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import episodesData from './data/episodes.json'
-import { Coffee, Filter, RefreshCw } from 'lucide-react'
+import { RefreshCw, FileText, CheckSquare, Search } from 'lucide-react'
 
 function App() {
   const [selectedEpisode, setSelectedEpisode] = useState(null);
+  const [isShuffling, setIsShuffling] = useState(false);
   const [filters, setFilters] = useState({
     onlyMichael: false,
     christmas: true,
@@ -17,30 +18,38 @@ function App() {
   };
 
   const selectRandomEpisode = () => {
-    let filtered = episodesData;
+    setIsShuffling(true);
+    setSelectedEpisode(null);
 
-    if (filters.onlyMichael) {
-      filtered = filtered.filter(ep => ep.hasMichael);
-    }
+    // Simulate "searching files" for premium feel
+    setTimeout(() => {
+      let filtered = episodesData;
 
-    // Seasonal exclusion filters
-    if (!filters.christmas) {
-      filtered = filtered.filter(ep => ep.seasonal !== 'Christmas');
-    }
-    if (!filters.halloween) {
-      filtered = filtered.filter(ep => ep.seasonal !== 'Halloween');
-    }
-    if (!filters.valentines) {
-      filtered = filtered.filter(ep => ep.seasonal !== 'Valentine\'s Day');
-    }
+      if (filters.onlyMichael) {
+        filtered = filtered.filter(ep => ep.hasMichael);
+      }
 
-    if (filtered.length === 0) {
-      setSelectedEpisode("No episodes found matching these filters!");
-      return;
-    }
+      // Seasonal exclusion filters
+      if (!filters.christmas) {
+        filtered = filtered.filter(ep => ep.seasonal !== 'Christmas');
+      }
+      if (!filters.halloween) {
+        filtered = filtered.filter(ep => ep.seasonal !== 'Halloween');
+      }
+      if (!filters.valentines) {
+        filtered = filtered.filter(ep => ep.seasonal !== 'Valentine\'s Day');
+      }
 
-    const randomIndex = Math.floor(Math.random() * filtered.length);
-    setSelectedEpisode(filtered[randomIndex]);
+      if (filtered.length === 0) {
+        setSelectedEpisode("No archival records match current criteria.");
+        setIsShuffling(false);
+        return;
+      }
+
+      const randomIndex = Math.floor(Math.random() * filtered.length);
+      setSelectedEpisode(filtered[randomIndex]);
+      setIsShuffling(false);
+    }, 800);
   };
 
   return (
@@ -48,12 +57,13 @@ function App() {
       <div className="coffee-stain"></div>
 
       <header>
-        <h1>Dunder Mifflin</h1>
-        <div className="logo-subtext">PAPER COMPANY, INC.</div>
-        <p style={{ marginTop: '20px', fontStyle: 'italic' }}>Episode Randomizer 1.0 (Internal Use Only)</p>
+        <h1>Scranton Paper Solutions</h1>
+        <div className="logo-subtext">DISTRIBUTION CENTER #042</div>
+        <div className="system-status">System Status: Online / Records Verified</div>
       </header>
 
       <div className="filters">
+        <div className="filter-section-title">Personnel Filters</div>
         <label className="filter-item">
           <input
             type="checkbox"
@@ -61,10 +71,10 @@ function App() {
             checked={filters.onlyMichael}
             onChange={handleFilterChange}
           />
-          Include Michael Scott only
+          Include Regional Manager only
         </label>
 
-        <div style={{ marginTop: '10px', fontWeight: 'bold', fontSize: '0.9rem' }}>Seasonal Overrides:</div>
+        <div className="filter-section-title">Seasonal Archive Exclusions</div>
         <div className="seasonal-filters">
           <label className="filter-item">
             <input
@@ -97,30 +107,55 @@ function App() {
       </div>
 
       <div className="action-section">
-        <button className="select-button" onClick={selectRandomEpisode}>
-          SELECT RANDOM EPISODE
+        <button
+          className="select-button"
+          onClick={selectRandomEpisode}
+          disabled={isShuffling}
+        >
+          {isShuffling ? (
+            <>
+              <RefreshCw size={20} className="shuffling-icon" />
+              SEARCHING ARCHIVES...
+            </>
+          ) : (
+            <>
+              <Search size={20} />
+              RETRIEVE RANDOM RECORD
+            </>
+          )}
         </button>
       </div>
 
-      {selectedEpisode ? (
-        typeof selectedEpisode === 'string' ? (
-          <div className="empty-state">{selectedEpisode}</div>
-        ) : (
-          <div className="result-card">
-            <h2>{selectedEpisode.title}</h2>
-            <div className="result-meta">
-              Season {selectedEpisode.season}, Episode {selectedEpisode.episode}
-              {selectedEpisode.seasonal && <span style={{ marginLeft: '10px', color: '#e67e22' }}>[{selectedEpisode.seasonal} Special]</span>}
+      <div className="result-container">
+        {isShuffling ? (
+          <div className="empty-state">Decrypting file path...</div>
+        ) : selectedEpisode ? (
+          typeof selectedEpisode === 'string' ? (
+            <div className="empty-state">{selectedEpisode}</div>
+          ) : (
+            <div className="memo-card">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <h2>{selectedEpisode.title}</h2>
+                <FileText size={24} opacity={0.3} />
+              </div>
+              <div className="result-meta">
+                SEASON: {selectedEpisode.season.toString().padStart(2, '0')} <br />
+                RECORD: EP-{selectedEpisode.episode.toString().padStart(3, '0')}
+                {selectedEpisode.seasonal && <span className="special-tag">{selectedEpisode.seasonal.toUpperCase()}</span>}
+              </div>
+              <p className="memo-instruction">
+                Document retrieved. Authorized for viewing on primary screening device.
+              </p>
             </div>
-            <p>Ready to watch? Head over to your favorite streaming service!</p>
-          </div>
-        )
-      ) : (
-        <div className="empty-state">No episode selected. Click the button to start.</div>
-      )}
+          )
+        ) : (
+          <div className="empty-state">Waiting for selection...</div>
+        )}
+      </div>
 
-      <footer style={{ marginTop: '40px', textAlign: 'center', fontSize: '0.7rem', color: '#aaa', borderTop: '1px solid #eee', paddingTop: '20px' }}>
-        &copy; 2026 Dunder Mifflin Paper Company, Inc. Scranton Branch.
+      <footer>
+        <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>SCRANTON PAPER SOLUTIONS</div>
+        <div>INTERNAL USE ONLY. REPRODUCTION PROHIBITED.</div>
       </footer>
     </div>
   )
