@@ -1,26 +1,218 @@
 [
-  { "id": 1, "season": 1, "episode": 1, "title": "Pilot", "hasMichael": true, "seasonal": null },
-  { "id": 2, "season": 1, "episode": 2, "title": "Diversity Day", "hasMichael": true, "seasonal": null },
-  { "id": 3, "season": 2, "episode": 1, "title": "The Dundies", "hasMichael": true, "seasonal": null },
-  { "id": 4, "season": 2, "episode": 5, "title": "Halloween", "hasMichael": true, "seasonal": "Halloween" },
-  { "id": 5, "season": 2, "episode": 10, "title": "Christmas Party", "hasMichael": true, "seasonal": "Christmas" },
-  { "id": 6, "season": 2, "episode": 12, "title": "The Injury", "hasMichael": true, "seasonal": null },
-  { "id": 7, "season": 2, "episode": 16, "title": "Valentine's Day", "hasMichael": true, "seasonal": "Valentine's Day" },
-  { "id": 8, "season": 2, "episode": 22, "title": "Casino Night", "hasMichael": true, "seasonal": null },
-  { "id": 9, "season": 3, "episode": 10, "title": "A Benihana Christmas", "hasMichael": true, "seasonal": "Christmas" },
-  { "id": 10, "season": 3, "episode": 24, "title": "The Job", "hasMichael": true, "seasonal": null },
-  { "id": 11, "season": 4, "episode": 1, "title": "Fun Run", "hasMichael": true, "seasonal": null },
-  { "id": 12, "season": 4, "episode": 13, "title": "Dinner Party", "hasMichael": true, "seasonal": null },
-  { "id": 13, "season": 5, "episode": 11, "title": "Moroccan Christmas", "hasMichael": true, "seasonal": "Christmas" },
-  { "id": 14, "season": 5, "episode": 14, "title": "Stress Relief", "hasMichael": true, "seasonal": null },
-  { "id": 15, "season": 6, "episode": 4, "title": "Niagara", "hasMichael": true, "seasonal": null },
-  { "id": 16, "season": 6, "episode": 13, "title": "Secret Santa", "hasMichael": true, "seasonal": "Christmas" },
-  { "id": 17, "season": 7, "episode": 6, "title": "Costume Contest", "hasMichael": true, "seasonal": "Halloween" },
-  { "id": 18, "season": 7, "episode": 11, "title": "Classy Christmas", "hasMichael": true, "seasonal": "Christmas" },
-  { "id": 19, "season": 7, "episode": 22, "title": "Goodbye, Michael", "hasMichael": true, "seasonal": null },
-  { "id": 20, "season": 8, "episode": 5, "title": "Spooked", "hasMichael": false, "seasonal": "Halloween" },
-  { "id": 21, "season": 8, "episode": 10, "title": "Christmas Wishes", "hasMichael": false, "seasonal": "Christmas" },
-  { "id": 22, "season": 9, "episode": 5, "title": "Here Comes Treble", "hasMichael": false, "seasonal": "Halloween" },
-  { "id": 23, "season": 9, "episode": 9, "title": "Dwight Christmas", "hasMichael": false, "seasonal": "Christmas" },
-  { "id": 24, "season": 9, "episode": 24, "title": "Finale", "hasMichael": true, "seasonal": null }
+  {
+    "id": 1,
+    "season": 1,
+    "episode": 1,
+    "title": "Pilot",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 7.4
+  },
+  {
+    "id": 2,
+    "season": 1,
+    "episode": 2,
+    "title": "Diversity Day",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 8.3
+  },
+  {
+    "id": 3,
+    "season": 2,
+    "episode": 1,
+    "title": "The Dundies",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 8.6
+  },
+  {
+    "id": 4,
+    "season": 2,
+    "episode": 5,
+    "title": "Halloween",
+    "hasMichael": true,
+    "seasonal": "Halloween",
+    "imdbRating": 7.9
+  },
+  {
+    "id": 5,
+    "season": 2,
+    "episode": 10,
+    "title": "Christmas Party",
+    "hasMichael": true,
+    "seasonal": "Christmas",
+    "imdbRating": 8.7
+  },
+  {
+    "id": 6,
+    "season": 2,
+    "episode": 12,
+    "title": "The Injury",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 9.0
+  },
+  {
+    "id": 7,
+    "season": 2,
+    "episode": 16,
+    "title": "Valentine's Day",
+    "hasMichael": true,
+    "seasonal": "Valentine's Day",
+    "imdbRating": 9.0
+  },
+  {
+    "id": 8,
+    "season": 2,
+    "episode": 22,
+    "title": "Casino Night",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 9.3
+  },
+  {
+    "id": 9,
+    "season": 3,
+    "episode": 10,
+    "title": "A Benihana Christmas",
+    "hasMichael": true,
+    "seasonal": "Christmas",
+    "imdbRating": 8.4
+  },
+  {
+    "id": 10,
+    "season": 3,
+    "episode": 24,
+    "title": "The Job",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 9.3
+  },
+  {
+    "id": 11,
+    "season": 4,
+    "episode": 1,
+    "title": "Fun Run",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 8.7
+  },
+  {
+    "id": 12,
+    "season": 4,
+    "episode": 13,
+    "title": "Dinner Party",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 9.7
+  },
+  {
+    "id": 13,
+    "season": 5,
+    "episode": 11,
+    "title": "Moroccan Christmas",
+    "hasMichael": true,
+    "seasonal": "Christmas",
+    "imdbRating": 8.2
+  },
+  {
+    "id": 14,
+    "season": 5,
+    "episode": 14,
+    "title": "Stress Relief",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 9.7
+  },
+  {
+    "id": 15,
+    "season": 6,
+    "episode": 4,
+    "title": "Niagara",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 9.4
+  },
+  {
+    "id": 16,
+    "season": 6,
+    "episode": 13,
+    "title": "Secret Santa",
+    "hasMichael": true,
+    "seasonal": "Christmas",
+    "imdbRating": 8.4
+  },
+  {
+    "id": 17,
+    "season": 7,
+    "episode": 6,
+    "title": "Costume Contest",
+    "hasMichael": true,
+    "seasonal": "Halloween",
+    "imdbRating": 9.0
+  },
+  {
+    "id": 18,
+    "season": 7,
+    "episode": 11,
+    "title": "Classy Christmas",
+    "hasMichael": true,
+    "seasonal": "Christmas",
+    "imdbRating": 8.9
+  },
+  {
+    "id": 19,
+    "season": 7,
+    "episode": 22,
+    "title": "Goodbye, Michael",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 9.8
+  },
+  {
+    "id": 20,
+    "season": 8,
+    "episode": 5,
+    "title": "Spooked",
+    "hasMichael": false,
+    "seasonal": "Halloween",
+    "imdbRating": 7.6
+  },
+  {
+    "id": 21,
+    "season": 8,
+    "episode": 10,
+    "title": "Christmas Wishes",
+    "hasMichael": false,
+    "seasonal": "Christmas",
+    "imdbRating": 8.0
+  },
+  {
+    "id": 22,
+    "season": 9,
+    "episode": 5,
+    "title": "Here Comes Treble",
+    "hasMichael": false,
+    "seasonal": "Halloween",
+    "imdbRating": 7.0
+  },
+  {
+    "id": 23,
+    "season": 9,
+    "episode": 9,
+    "title": "Dwight Christmas",
+    "hasMichael": false,
+    "seasonal": "Christmas",
+    "imdbRating": 8.3
+  },
+  {
+    "id": 24,
+    "season": 9,
+    "episode": 24,
+    "title": "Finale",
+    "hasMichael": true,
+    "seasonal": null,
+    "imdbRating": 9.8
+  }
 ]

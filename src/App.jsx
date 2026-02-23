@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import episodesData from './data/episodes.json'
-import { RefreshCw, FileText, CheckSquare, Search } from 'lucide-react'
+import { RefreshCw, FileText, CheckSquare, Search, Star } from 'lucide-react'
 
 function App() {
   const [selectedEpisode, setSelectedEpisode] = useState(null);
@@ -49,7 +49,7 @@ function App() {
       const randomIndex = Math.floor(Math.random() * filtered.length);
       setSelectedEpisode(filtered[randomIndex]);
       setIsShuffling(false);
-    }, 800);
+    }, 300);
   };
 
   return (
@@ -142,6 +142,13 @@ function App() {
                 SEASON: {selectedEpisode.season.toString().padStart(2, '0')} <br />
                 RECORD: EP-{selectedEpisode.episode.toString().padStart(3, '0')}
                 {selectedEpisode.seasonal && <span className="special-tag">{selectedEpisode.seasonal.toUpperCase()}</span>}
+              </div>
+              <div className="rating-container">
+                <span className="rating-label">IMDB RATING:</span>
+                <div className={`rating-badge ${selectedEpisode.imdbRating >= 9 ? 'rating-high' : selectedEpisode.imdbRating >= 8 ? 'rating-mid' : 'rating-low'}`}>
+                  <Star size={14} fill="currentColor" />
+                  <span>{selectedEpisode.imdbRating.toFixed(1)}</span>
+                </div>
               </div>
               <p className="memo-instruction">
                 Document retrieved. Authorized for viewing on primary screening device.

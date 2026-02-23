@@ -276,6 +276,47 @@ h1 {
   vertical-align: middle;
 }
 
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-family: 'Courier Prime', monospace;
+}
+
+.rating-label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+.rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.rating-high {
+  background-color: #b45309;
+  /* Deep gold/amber */
+}
+
+.rating-mid {
+  background-color: #475569;
+  /* Slate/Silver */
+}
+
+.rating-low {
+  background-color: #94a3b8;
+  /* Light slate */
+}
+
 .memo-instruction {
   font-size: 0.85rem;
   font-style: italic;
